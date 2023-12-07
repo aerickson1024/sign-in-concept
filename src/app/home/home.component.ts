@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.less'
 })
-export class HomeComponent {}
+export class HomeComponent {
+  constructor(router: Router) {
+    router.navigate(['/sign-in']);
+  }
+}
