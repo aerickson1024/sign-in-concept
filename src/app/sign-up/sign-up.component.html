@@ -1,21 +1,22 @@
 <div class="wrapper">
-  <div class="form-wrapper sign-in">
+  <div class="form-wrapper sign-up">
     <form action="">
       <h2>Sign Up</h2>
       <div class="input-group">
         <input type="text" required>
-        <label>Username</label>
+        <label>Email</label>
       </div>
       <div class="input-group">
         <input type="password" required>
         <label>Password</label>
       </div>
-      <div class="remember">
-        <label><input type="checkbox"> Remember me</label>
+      <div class="input-group">
+        <input type="password" required>
+        <label>Password again</label>
       </div>
-      <button type="submit">Login</button>
-      <div class="signup-link">
-        <p>Don't have an account? <a routerLink="/" class="signup-button-link">Sign Up</a></p>
+      <button type="submit">Create Account</button>
+      <div class="sign-in-link">
+        <p>Already have an account?  <a routerLink="/sign-in" class="sign-in-button-link">Sign In</a></p>
       </div>
     </form>
   </div>
