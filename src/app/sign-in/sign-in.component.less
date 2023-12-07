@@ -1,42 +1,110 @@
-#container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  // background-color: rgb(10, 10, 10);
-  
-  .login-window {
-    // outline: 1px solid rgb(17, 208, 214);
-    // min-width: 350px;
-    // min-height: 500px;
+@fontColor: rgb(230, 230, 230);
+@accentColor: #0EF;
+
+.wrapper {
+  position: relative;
+  width: 400px;
+  height: 500px;
+  box-shadow: 0 0 50px @accentColor;
+  border-radius: 20px;
+  padding: 40px;
+
+  .form-wrapper {
     display: flex;
-    flex-direction: column;
-    border-radius: 25px;
-    padding: 25px;
-    box-shadow: 0px 0px 50px 10px rgba(17, 208, 214, .75);
-    background-color: rgb(10, 10, 10);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 
-    .title {
-      // border: 1px solid red;
-      width: 250px;
-      color: rgb(230, 230, 230);
+    h2 {
+      font-size: 30px;
+      color: @fontColor;
       text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-      letter-spacing: .15rem;
     }
 
-    input[type="text"] {
-      all: unset;
-      // background-color: rgb(27, 27, 27);
-      // border: 1px solid red;
-      // width: 100%; 
-      height: 25px;
-      margin-top: 10px;
-      padding: 5px 0 5px 10px;
-      border-bottom: 2px solid rgb(230, 230, 230);
-      color: rgb(230, 230, 230);
+    .input-group {
+      position: relative;
+      margin: 30px 0;
+      border-bottom: 2px solid @fontColor;
+
+      label {
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: @fontColor;
+        pointer-events: none;
+        transition: 250ms;
+        opacity: 100%;
+      }
+
+      input {
+        width: 320px;
+        height: 40px;
+        font-size: 16px;
+        color: @fontColor;
+        padding: 0 5px;
+        background: transparent;
+        border: none;
+        outline: none;
+
+        &:focus~label,
+        &:valid~label {
+          top: -5px;
+          opacity: 0;
+        }
+      }
     }
+
+    .remember {
+      margin: -5px 0 15px 5px;
+
+      label {
+        color: @fontColor;
+        font-size: 14px;
+
+        input {
+          accent-color: @accentColor;
+        }
+      }
+    }
+
+    button {
+      position: relative;
+      width: 100%;
+      height: 40px;
+      background-color: @accentColor;
+      box-shadow: 0 0 10px @accentColor;
+      font-size: 16px;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 30px;
+      border: none;
+      outline: none;
+    }
+
+    .signup-link {
+      font-size: 14px;
+      text-align: center;
+      margin: 15px 0;
+
+      p {
+        color: @fontColor;
+
+        a {
+          color: @accentColor;
+          text-decoration: none;
+          font-weight: 500;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+
   }
 }
