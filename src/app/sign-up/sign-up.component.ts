@@ -35,7 +35,7 @@ export class SignUpComponent implements OnInit {
       const passwordAgain = this.profileForm?.value.passwordAgain;
 
       const areNotEqual = password != passwordAgain;
-      return areNotEqual ? { areNotEqual: true } : null;
+      return areNotEqual ? { 'areNotEqual': true } : null;
     }
   }
 }
