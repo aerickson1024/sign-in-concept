@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
+import { CreateUserService } from '../services/create-user.service';
+import { Credentials } from '../models/credentials';
 
 @Component({
   selector: 'app-sign-up',
@@ -10,6 +12,7 @@ import { ReactiveFormsModule, FormControl, FormGroup, Validators, ValidationErro
   styleUrl: './sign-up.component.less'
 })
 export class SignUpComponent implements OnInit {
+  createUser: CreateUserService = inject(CreateUserService);
   profileForm: FormGroup;
 
   constructor() {
@@ -24,9 +27,9 @@ export class SignUpComponent implements OnInit {
 
   handleSubmit() {
     console.log('FORM SUBMITTED');
-    console.log(`Email: ${this.profileForm.value.email}`);
-    console.log(`Password: ${this.profileForm.value.password}`);
-    console.log(`Password Again: ${this.profileForm.value.passwordAgain}`);
+
+    const creds = new Credentials(this.profileForm.value.email, this.profileForm.value.password);
+    this.createUser.submitCredentials(creds);
   }
 
   passwordValidator() {
