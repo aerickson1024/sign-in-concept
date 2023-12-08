@@ -1,11 +1,15 @@
-@fontColor: rgb(230, 230, 230);
-@accentColor: #0EF;
+@fontColor: rgb(247, 246, 252);
+@accentColor: hsl(167, 100%, 40%);
+@backgroundLighter: hsl(0, 0%, 20%);
+@backgroundLightest: hsl(0, 0%, 30%);
 
 .wrapper {
   position: relative;
   width: 400px;
   height: 500px;
-  box-shadow: 0 0 50px @accentColor;
+  background-color: @backgroundLighter;
+  box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.75);
+  border: 1px solid @backgroundLightest;
   border-radius: 20px;
   padding: 40px;
 
@@ -35,12 +39,13 @@
         font-size: 16px;
         color: @fontColor;
         pointer-events: none;
-        transition: 250ms;
+        transition: 200ms;
         opacity: 100%;
-        filter: brightness(50%);
+        filter: brightness(75%);
       }
 
       input {
+
         width: 320px;
         height: 40px;
         font-size: 16px;
@@ -55,6 +60,14 @@
           top: -5px;
           opacity: 0;
         }
+      }
+
+      small {
+        position: absolute;
+        display: block;
+        color: red;
+        bottom: -21px;
+        right: 0;
       }
     }
 
@@ -75,8 +88,7 @@
       position: relative;
       width: 100%;
       height: 40px;
-      background-color: @accentColor;
-      box-shadow: 0 0 10px @accentColor;
+      background-color: @fontColor;
       font-size: 16px;
       color: black;
       font-weight: bold;
@@ -84,6 +96,21 @@
       border-radius: 30px;
       border: none;
       outline: none;
+      transition: 50ms ease-in-out;
+
+      &:hover,
+      &:focus {
+        background-color: @accentColor;
+      }
+
+      &:disabled {
+        filter: brightness(50%);
+
+        &:hover,
+        &:focus {
+          background-color: @fontColor;
+        }
+      }
     }
 
     .sign-in-link {
@@ -105,7 +132,5 @@
         }
       }
     }
-
-
   }
 }
